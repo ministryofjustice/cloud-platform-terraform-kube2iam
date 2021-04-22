@@ -103,7 +103,7 @@ resource "helm_release" "kube2iam" {
   repository = "https://jtblin.github.io/kube2iam/" 
   chart      = "kube2iam"
   namespace  = "kube2iam"
-  version    = "1.0.0"
+  version    = "2.6.0"
 
   values = [templatefile("${path.module}/templates/kube2iam.yaml.tpl", {})]
 
