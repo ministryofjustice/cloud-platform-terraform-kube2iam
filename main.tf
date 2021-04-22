@@ -96,16 +96,11 @@ data "aws_iam_policy_document" "allow_to_assume" {
 
 # Helm #
 
-data "helm_repository" "stable" {
-  name = "stable"
-  url  = "https://kubernetes-charts.storage.googleapis.com"
-}
-
 resource "helm_release" "kube2iam" {
   count = var.enable_kube2iam ? 1 : 0
 
   name       = "kube2iam"
-  repository = data.helm_repository.stable.metadata[0].name
+  repository = "https://kubernetes-charts.storage.googleapis.com" 
   chart      = "kube2iam"
   namespace  = "kube2iam"
   version    = "1.0.0"
