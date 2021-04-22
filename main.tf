@@ -100,7 +100,7 @@ resource "helm_release" "kube2iam" {
   count = var.enable_kube2iam ? 1 : 0
 
   name       = "kube2iam"
-  repository = "https://kubernetes-charts.storage.googleapis.com" 
+  repository = "https://jtblin.github.io/kube2iam/" 
   chart      = "kube2iam"
   namespace  = "kube2iam"
   version    = "1.0.0"
